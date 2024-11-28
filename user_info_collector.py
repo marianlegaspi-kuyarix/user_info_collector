@@ -45,6 +45,19 @@ def valid_civil_status(status):
         else:
             print("Not a valid civil status. Please try again.")
 
+def valid_hometown(town):
+    while True:
+        user_town = input(town).title()
+
+        if user_town.isdigit():
+            print("Your hometown cannot be a number. Please try again.")
+        elif not user_town.isalpha:
+            print("Your hometown cannot cointain any non-alaphabetic characters. Please try again.")
+        elif len(user_town) <= 4:
+            print("Not a valid town name. Please try again.")
+        else:
+            return user_town
+
 def valid_number(phone):
     while True:
         user_number = input(phone)
@@ -56,13 +69,14 @@ def valid_number(phone):
                 print("Your phone number must be exactly 11 digits long. Please try again.")
         else:
             print("Your phone number should only contain numeric digits. Please try again.")
+
             
 #loop for the input prompts
 while True:
     first_name = valid_name("Enter your first name: ")
     last_name = valid_name("Enter your last name: ")
 
-    print(f"Username: {first_name} {last_name}")
+    print(f"User name: {first_name} {last_name}")
 
     age = valid_age("How old are you: ")
 
@@ -71,6 +85,10 @@ while True:
     status = valid_civil_status("What is your civil status: ")
 
     print(f"User civil status: {status}")
+
+    town = valid_hometown("Where is your hometown: ")
+
+    print(f"User hometown: {town}")
 
     phone = valid_number("Enter your phone number: ")
 
