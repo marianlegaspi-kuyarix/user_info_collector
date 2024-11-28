@@ -100,7 +100,26 @@ def valid_number(phone):
         else:
             print("Your phone number should only contain numeric digits. Please try again.")
 
-            
+def most_important_question(arcane):
+    while True:
+        important = input(arcane).title()
+
+        try:
+            if important == "Yes":
+
+                while True:
+                        caitvi = input("This is the most important question! \nDO YOU LIKE CAITLYN AND VI (YES/NO): ").upper()
+                        if caitvi == "YES":
+                            return "YOU ARE THE GOAT, CAITVI IS THE BEST. LESBIANS LET'S GO!"
+                        elif caitvi == "NO":
+                            return "I HOPE BOTH YOUR PILLOWS ARE WARM!"
+                        elif not caitvi.isalpha():
+                            print("Answer the damn QUESTION! YES OR NO.")
+            elif important == "No":
+                return "Oh! You should watch it some other time. You would like it."
+        except ValueError:
+            print("That is not a valid answer! Please try again.")
+                                    
 #loop for the input prompts
 while True:
     first_name = valid_name("Enter your first name: ")
@@ -128,4 +147,7 @@ while True:
 
     print(f"User phone number: {phone}")
 
+    arcane = most_important_question("For the last requirement.\nHave you watched Arcane (Yes/no): ")
+
+    print(arcane)
 
