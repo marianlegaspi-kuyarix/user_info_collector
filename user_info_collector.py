@@ -14,6 +14,36 @@ def valid_name(fullname):
         else:
             return username
 
+def valid_gender(gender):
+    while True:
+        user_gender = input(gender).title()
+
+        if not user_gender.isalpha():
+            print("Your Gender is not amongst the available options. Please try again.")
+        elif user_gender == "Female":
+            return user_gender
+        elif user_gender == "Male":
+            return user_gender
+        elif user_gender == "Other":
+            
+            while True:
+                other = input("Are you perhaps Nonbinary or Genderfluid? (Yes/No): ").title() 
+                if other == "Yes":
+                    yes_other = input("Can you specify your gender (Nonbinary/Genderfluid): ").title()
+                    if yes_other in ["Nonbinary", "Genderfluid"]:
+                            return yes_other
+                    if not yes_other.isalpha():
+                        print("Your Gender is not amongst the available options. Please try again.")
+                    else:
+                        print("Invalid input. Please specify 'Nonbinary' or 'Genderfluid'.")
+                elif other == "No":
+                    return "User is neither a female or male and refused to share their gender."
+                else:
+                    print("Not a valid response. Please answer 'Yes' or 'No'.")
+                    
+        else:
+            print("Not a valid gender. Please try again.")
+
 def valid_age(age):
     while True:
         user_age =input(age)
@@ -78,11 +108,15 @@ while True:
 
     print(f"User name: {first_name} {last_name}")
 
+    gender = valid_gender("What is your gender (Male/Female/Other): ")
+
+    print(f"User gender: {gender}")
+
     age = valid_age("How old are you: ")
 
     print(f"User age: {age}")
 
-    status = valid_civil_status("What is your civil status: ")
+    status = valid_civil_status("What is your civil status (Single/Married): ")
 
     print(f"User civil status: {status}")
 
