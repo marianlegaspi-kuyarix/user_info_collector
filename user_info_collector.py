@@ -42,6 +42,20 @@ def valid_civil_status(status):
             return civil_status
         elif civil_status == "Married":
             return civil_status
+        else:
+            print("Not a valid civil status. Please try again.")
+
+def valid_number(phone):
+    while True:
+        user_number = input(phone)
+        
+        if user_number.isdigit():
+            if len(user_number) == 11:
+                return user_number
+            else:
+                print("Your phone number must be exactly 11 digits long. Please try again.")
+        else:
+            print("Your phone number should only contain numeric digits. Please try again.")
             
 #loop for the input prompts
 while True:
@@ -52,10 +66,14 @@ while True:
 
     age = valid_age("How old are you: ")
 
-    print(f"User age is {age}")
+    print(f"User age: {age}")
 
-    status = valid_civil_status("What is your relationship status: ")
+    status = valid_civil_status("What is your civil status: ")
 
-    print(f"{first_name} you are {status}")
+    print(f"User civil status: {status}")
+
+    phone = valid_number("Enter your phone number: ")
+
+    print(f"User phone number: {phone}")
 
 
