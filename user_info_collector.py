@@ -127,7 +127,7 @@ while True:
 
     print(f"User name: {first_name} {last_name}")
 
-    gender = valid_gender("What is your gender (Male/Female/Other): ")
+    gender = valid_gender("What is your gender? (Male/Female/Other): ")
 
     print(f"User gender: {gender}")
 
@@ -135,7 +135,7 @@ while True:
 
     print(f"User age: {age}")
 
-    status = valid_civil_status("What is your civil status (Single/Married): ")
+    status = valid_civil_status("What is your civil status? (Single/Married): ")
 
     print(f"User civil status: {status}")
 
@@ -147,7 +147,21 @@ while True:
 
     print(f"User phone number: {phone}")
 
-    arcane = most_important_question("For the last requirement.\nHave you watched Arcane (Yes/no): ")
+    arcane = most_important_question("For the last requirement.\nHave you watched Arcane? (Yes/no): ")
 
     print(arcane)
+
+    another_entry = input("Do you want to add another entry? (Yes/No): ").title()
+    if not another_entry.isalpha():
+        print("Invalid response. Please try again.")
+    elif another_entry == "Yes":
+        print("NEW USER INFORMATION")
+        continue
+    elif another_entry == "No":
+        print("Exiting...collecting of data..")
+        break
+    else:
+        print("Invalid response. Please try again.")
+
+   
 
