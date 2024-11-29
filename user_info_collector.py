@@ -124,7 +124,7 @@ def most_important_question(arcane):
 
 #list of dictionary for users data/info
 collected_data = []  
-                                  
+
 #loop for the input prompts
 while True:
 
@@ -139,18 +139,21 @@ while True:
     user_info["arcane"] =  most_important_question("For the last requirement.\nHave you watched Arcane? (Yes/no): ")
 
     collected_data.append(user_info)
-
-    another_entry = input("Do you want to add another entry? (Yes/No): ").title()
-    if not another_entry.isalpha():
-        print("Invalid response. Please try again.")
-    elif another_entry == "Yes":
-        print("NEW USER INFORMATION")
-        continue
-    elif another_entry == "No":
-        print("Exiting...collecting of data..")
+    while True:
+        another_entry = input("Do you want to add another entry? (Yes/No): ").title()
+        if not another_entry.isalpha():
+            print("Invalid response. Please try again.")
+        elif another_entry == "Yes":
+            print("NEW USER INFORMATION")
+            break
+        elif another_entry == "No":
+            print("Exiting...collecting of data..")
+            break
+        else:
+            print("Invalid response. Please try again.")
+            
+    if another_entry == "No":
         break
-    else:
-        print("Invalid response. Please try again.")
 
 #saving data into txt fle
 with open("user_info_collector.txt", "a") as file:
