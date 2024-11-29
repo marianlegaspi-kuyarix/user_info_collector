@@ -35,16 +35,16 @@ def search_info():
 while True:
     search_info()
 
-    continue_search_info = input(f"\nFind another info? (Yes/No): ").title
+    continue_search_info = input(f"\nFind another info? (Yes/No): ").title()
     if continue_search_info == "Yes":
-        search_again = input("Enter the full name you want to find: ")
-        if search_again.isdigit:
-            print("Name cannot be compose of numbers. Please try again.")
-        elif len(search_again) <= 3:
-            print("You entered a name too short. Please try again.")
-        elif not search_again.replace(" ","").isalpha():
-            print("Name cannot contain non-alpahebetic characters. Please try again.")
-        else:
-            continue
+        print(f"\nSearching for another user...\n")
+        continue
+    elif continue_search_info == "No":
+        print(f"\nExiting search...")
+        break
+    else:
+        print("Invalid answer, answer 'Yes' or 'No' only. Please try again.")
         
+    break
+
 
