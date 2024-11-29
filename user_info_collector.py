@@ -104,20 +104,20 @@ def most_important_question(arcane):
     while True:
         important = input(arcane).title()
 
-        try:
-            if important == "Yes":
-
-                while True:
-                        caitvi = input("This is the most important question! \nDO YOU LIKE CAITLYN AND VI (YES/NO): ").upper()
-                        if caitvi == "YES":
-                            return "YOU ARE THE GOAT, CAITVI IS THE BEST. LESBIANS LET'S GO!"
-                        elif caitvi == "NO":
-                            return "I HOPE BOTH YOUR PILLOWS ARE WARM!"
-                        elif not caitvi.isalpha():
-                            print("Answer the damn QUESTION! YES OR NO.")
-            elif important == "No":
-                return "Oh! You should watch it some other time. You would like it."
-        except ValueError:
+        if important == "Yes":
+            while True:
+                caitvi = input("This is the most important question! \nDO YOU LIKE CAITLYN AND VI (YES/NO): ").upper()
+                if caitvi == "YES":
+                    return "YOU ARE THE GOAT, CAITVI IS THE BEST. LESBIANS LET'S GO!"
+                elif caitvi == "NO":
+                    return "I HOPE BOTH YOUR PILLOWS ARE WARM!"
+                elif not caitvi.isalpha():
+                    print("Answer the damn QUESTION! YES OR NO.")
+        elif not important.isalpha():
+            print("That is not a valid answer! Please try again.")
+        elif important == "No":
+            return "Oh! You should watch it some other time. You would like it."
+        else:
             print("That is not a valid answer! Please try again.")
                                     
 #loop for the input prompts
@@ -162,6 +162,3 @@ while True:
         break
     else:
         print("Invalid response. Please try again.")
-
-   
-
