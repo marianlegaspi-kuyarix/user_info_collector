@@ -19,15 +19,19 @@ def search_info():
 
     user_match = False
     for info in info_devider:
-        if full_name in info:
-            print("\nUSER INFO MATCHED : \n")
-            print(info.strip())
-            user_match = True
-            break
+
+        lines = info.strip().split("\n")
+        if len(lines) > 2:
+            name_line = lines[2].strip()
+            if full_name in name_line:
+                print("\nUSER INFO MATCHED : \n")
+                print(info.strip())
+                user_match = True
+                break
     if not user_match:
         print("NO USER INFO MATCHED.")
+        print(lines)
 while True:
     search_info()
-   
-
+    
 
