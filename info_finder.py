@@ -1,3 +1,4 @@
+print(f"{'-' * 40}WELCOME{'-' * 40}")
 def search_info():
 
     while True:
@@ -30,21 +31,24 @@ def search_info():
             break
 
     if not user_match:
-        print("NO USER INFO MATCHED.")
+        print(f"\nNO USER INFO MATCHED\n")
 
 while True:
     search_info()
-
-    continue_search_info = input(f"\nFind another info? (Yes/No): ").title()
-    if continue_search_info == "Yes":
-        print(f"\nSearching for another user...\n")
-        continue
-    elif continue_search_info == "No":
-        print(f"\nExiting search...")
+    
+    while True:
+        continue_search_info = input(f"\nFind another info? (Yes/No): ").title()
+        if continue_search_info == "Yes":
+            print(f"\nSearching for another user...\n")
+            break
+        elif continue_search_info == "No":
+            print(f"\nExiting search...\n")
+            break
+        else:
+            print("Invalid answer. Please answer 'Yes' or 'No'. Try again.")
+    
+    if continue_search_info == "No":
         break
-    else:
-        print("Invalid answer, answer 'Yes' or 'No' only. Please try again.")
-        
-    break
 
+print(f"{'-' * 40}CLOSED{'-' * 40}")
 
