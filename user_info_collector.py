@@ -121,7 +121,9 @@ def most_important_question(arcane):
             return "Oh! You should watch it some other time. You would like it."
         else:
             print("That is not a valid answer! Please try again.")
-data_collected = []                                    
+
+#list of dictionary for users data/info
+collected_data = []                                    
 #loop for the input prompts
 while True:
 
@@ -135,7 +137,7 @@ while True:
     user_info["phone"] = valid_number("Enter your phone number: ")
     user_info["arcane"] =  most_important_question("For the last requirement.\nHave you watched Arcane? (Yes/no): ")
 
-    data_collected.append(user_info)
+    collected_data.append(user_info)
 
     another_entry = input("Do you want to add another entry? (Yes/No): ").title()
     if not another_entry.isalpha():
@@ -148,5 +150,16 @@ while True:
         break
     else:
         print("Invalid response. Please try again.")
+print(collected_data)
 
-print(data_collected)
+#saving data into txt fle
+with open("user_info_collector.txt", "a") as file:
+    for data in collected_data:
+        file.write(f"""{'-'*10}USER INFORMATION{'-'*10}\n
+{data["first_name"]} {data["last_name"]} is a {data["age"]} years old {data["gender"]}.\n
+They are from {data["town"]} and currently {data["status"]}\n
+To reach them their phone number is {data["phone"]}.\n
+When ask about arcane best ship, the interviewer could not contain themselve and said; {data["arcane"]}.\n
+{'-'*40}""")
+print("User information has been saved to 'user_info_collector.txt'")
+        
