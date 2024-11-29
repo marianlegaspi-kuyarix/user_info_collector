@@ -1,27 +1,33 @@
-def search_info(full_name):
+def search_info():
 
     while True:
-        find_info = input(full_name).title()
+        full_name = input("Enter the full name you want to find: ").title()
 
-        if len(find_info) <= 3:
+        if full_name.isdigit():
+            print("Name cannot be compose of numbers. Please try again.")
+        elif len(full_name) <= 3:
             print("Name is too short. Please try again.")
-        elif not find_info.replace(" ","").isalpha():
+        elif not full_name.replace(" ","").isalpha():
             print("Name cannot contain non-alpahebetic characters. Please try again.")
         else:
-            search_info(full_name)
-        with open("user_info_collector.txt", "r") as file:
-            datas = file.readlines()
+            break
 
-        info_devider = ''.join(datas).split("-" * 90)
+    with open("user_info_collector.txt", "r") as file:
+        datas = file.readlines()
 
-        for info in info_devider:
-            if full_name in info:
-                print("\nUSER INFO MATCHED : \n")
-                print(info.strip())
-                return
+    info_devider = ''.join(datas).split("-" * 90)
+
+    user_match = False
+    for info in info_devider:
+        if full_name in info:
+            print("\nUSER INFO MATCHED : \n")
+            print(info.strip())
+            user_match = True
+            break
+    if not user_match:
         print("NO USER INFO MATCHED.")
 while True:
-     first_name = search_info("Enter full name: ")
-     
+    search_info()
+   
 
 
