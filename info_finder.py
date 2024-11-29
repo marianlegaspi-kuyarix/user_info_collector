@@ -31,7 +31,7 @@ def search_info():
             break
 
     if not user_match:
-        print(f"\nNO USER INFO MATCHED\n")
+        print(f"\nNO USER INFO MATCHED FOR: {full_name}\n")
 
 while True:
     search_info()
@@ -51,4 +51,3 @@ while True:
         break
 
 print(f"{'-' * 40}CLOSED{'-' * 40}")
-
