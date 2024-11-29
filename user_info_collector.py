@@ -123,7 +123,8 @@ def most_important_question(arcane):
             print("That is not a valid answer! Please try again.")
 
 #list of dictionary for users data/info
-collected_data = []                                    
+collected_data = []  
+                                  
 #loop for the input prompts
 while True:
 
@@ -164,4 +165,3 @@ To reach them, their phone number is {data["phone"]}.
 When ask about arcane best ship, the interviewer could not contain themselves and said;\n{data["arcane"]}.\n
 {'-'*90}\n\n""")
 print("User information has been saved to 'user_info_collector.txt'")
-        
