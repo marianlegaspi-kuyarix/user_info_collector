@@ -1,8 +1,9 @@
 print(f"{'-' * 40}WELCOME{'-' * 40}")
+print(f"{' ' * 35}Information Finder{' ' * 40}")
 def search_info():
 
     while True:
-        full_name = input(f"Enter the full name you want to find: ").title()
+        full_name = input(f"{'-' * 87}\nEnter the full name you want to find: ").title()
 
         if full_name.isdigit():
             print("Name cannot be compose of numbers. Please try again.")
