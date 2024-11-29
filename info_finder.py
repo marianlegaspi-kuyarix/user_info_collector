@@ -1,7 +1,7 @@
 def search_info():
 
     while True:
-        full_name = input("Enter the full name you want to find: ").title()
+        full_name = input(f"Enter the full name you want to find: ").title()
 
         if full_name.isdigit():
             print("Name cannot be compose of numbers. Please try again.")
@@ -35,8 +35,16 @@ def search_info():
 while True:
     search_info()
 
-    continue_search_info = input("Find another info? (Yes/No): ").title
+    continue_search_info = input(f"\nFind another info? (Yes/No): ").title
     if continue_search_info == "Yes":
         search_again = input("Enter the full name you want to find: ")
-            
+        if search_again.isdigit:
+            print("Name cannot be compose of numbers. Please try again.")
+        elif len(search_again) <= 3:
+            print("You entered a name too short. Please try again.")
+        elif not search_again.replace(" ","").isalpha():
+            print("Name cannot contain non-alpahebetic characters. Please try again.")
+        else:
+            continue
+        
 
