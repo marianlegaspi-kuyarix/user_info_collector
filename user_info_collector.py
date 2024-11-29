@@ -113,43 +113,29 @@ def most_important_question(arcane):
                     return "I HOPE BOTH YOUR PILLOWS ARE WARM!"
                 elif not caitvi.isalpha():
                     print("Answer the damn QUESTION! YES OR NO.")
+                else:
+                    print("Answer the damn QUESTION! YES OR NO.")
         elif not important.isalpha():
             print("That is not a valid answer! Please try again.")
         elif important == "No":
             return "Oh! You should watch it some other time. You would like it."
         else:
             print("That is not a valid answer! Please try again.")
-                                    
+data_collected = []                                    
 #loop for the input prompts
 while True:
-    first_name = valid_name("Enter your first name: ")
-    last_name = valid_name("Enter your last name: ")
 
-    print(f"User name: {first_name} {last_name}")
+    user_info = {}
+    user_info["first_name"] = valid_name("Enter your first name: ")
+    user_info["last_name"] = valid_name("Enter your last name: ")
+    user_info["gender"] = valid_gender("What is your gender? (Male/Female/Other): ")
+    user_info["age"] = valid_age("How old are you: ")
+    user_info["status"] = valid_civil_status("What is your civil status? (Single/Married): ")
+    user_info["town"] = valid_hometown("Where is your hometown: ")
+    user_info["phone"] = valid_number("Enter your phone number: ")
+    user_info["arcane"] =  most_important_question("For the last requirement.\nHave you watched Arcane? (Yes/no): ")
 
-    gender = valid_gender("What is your gender? (Male/Female/Other): ")
-
-    print(f"User gender: {gender}")
-
-    age = valid_age("How old are you: ")
-
-    print(f"User age: {age}")
-
-    status = valid_civil_status("What is your civil status? (Single/Married): ")
-
-    print(f"User civil status: {status}")
-
-    town = valid_hometown("Where is your hometown: ")
-
-    print(f"User hometown: {town}")
-
-    phone = valid_number("Enter your phone number: ")
-
-    print(f"User phone number: {phone}")
-
-    arcane = most_important_question("For the last requirement.\nHave you watched Arcane? (Yes/no): ")
-
-    print(arcane)
+    data_collected.append(user_info)
 
     another_entry = input("Do you want to add another entry? (Yes/No): ").title()
     if not another_entry.isalpha():
@@ -162,3 +148,5 @@ while True:
         break
     else:
         print("Invalid response. Please try again.")
+
+print(data_collected)
