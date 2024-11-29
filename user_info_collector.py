@@ -37,7 +37,7 @@ def valid_gender(gender):
                     else:
                         print("Invalid input. Please specify 'Nonbinary' or 'Genderfluid'.")
                 elif other == "No":
-                    return "User is neither a female or male and refused to share their gender."
+                    return "and did not specify their gender"
                 else:
                     print("Not a valid response. Please answer 'Yes' or 'No'.")
                     
@@ -150,16 +150,18 @@ while True:
         break
     else:
         print("Invalid response. Please try again.")
-print(collected_data)
 
 #saving data into txt fle
 with open("user_info_collector.txt", "a") as file:
+    
     for data in collected_data:
-        file.write(f"""{'-'*10}USER INFORMATION{'-'*10}\n
-{data["first_name"]} {data["last_name"]} is a {data["age"]} years old {data["gender"]}.\n
-They are from {data["town"]} and currently {data["status"]}\n
-To reach them their phone number is {data["phone"]}.\n
-When ask about arcane best ship, the interviewer could not contain themselve and said; {data["arcane"]}.\n
-{'-'*40}""")
+        file.write(f"""{'-'*90}
+USER INFORMATION
+{'-'*90}
+{data["first_name"]} {data["last_name"]} is a {data["age"]} years old {data["gender"]}.
+They are from {data["town"]} and currently {data["status"]}.
+To reach them, their phone number is {data["phone"]}.
+When ask about arcane best ship, the interviewer could not contain themselves and said;\n{data["arcane"]}.\n
+{'-'*90}\n\n""")
 print("User information has been saved to 'user_info_collector.txt'")
         
