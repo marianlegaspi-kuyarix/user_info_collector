@@ -11,9 +11,11 @@ def search_info():
             print("Name cannot contain non-alpahebetic characters. Please try again.")
         else:
             break
-
-    with open("user_info_collector.txt", "r") as file:
-        datas = file.readlines()
+    try:
+        with open("user_info_collector.txt", "r") as file:
+            datas = file.readlines()
+    except FileNotFoundError:
+        print("File 'user_info_collector.txt' doesn not exist. Please create it first.")
 
     info_devider = ''.join(datas).split("-" * 90)
 
@@ -21,17 +23,20 @@ def search_info():
     for info in info_devider:
 
         lines = info.strip().split("\n")
-        if len(lines) > 2:
-            name_line = lines[2].strip()
-            if full_name in name_line:
-                print("\nUSER INFO MATCHED : \n")
-                print(info.strip())
-                user_match = True
-                break
+        if len(lines) > 0 and full_name in lines[0]:
+            print(f"\nUSER INFO MATCHED : {full_name}\n")
+            print(info.strip())
+            user_match = True
+            break
+
     if not user_match:
         print("NO USER INFO MATCHED.")
-        print(lines)
+
 while True:
     search_info()
-    
+
+    continue_search_info = input("Find another info? (Yes/No): ").title
+    if continue_search_info == "Yes":
+        search_again = input("Enter the full name you want to find: ")
+            
 
